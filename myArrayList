@@ -49,6 +49,13 @@ public class myArrayList {
         }
     }
 
+    public boolean addAll(Fraction[] frc, myArrayList list) {
+    	for(int i=0;i < frc.length; i++) {
+    		list.add(list.indexOf(list.next()),frc[i]);
+    	}
+    	return true;
+    }
+
     public static void main(String[] args) {
         myArrayList list = new myArrayList();
         
@@ -65,5 +72,9 @@ public class myArrayList {
 
         // Print list
         list.print();
+
+        // Creates fraction array and calls addAll
+        Fraction[] frc = new Fraction[10];
+        list.addAll(frc, list);
     }
 }
