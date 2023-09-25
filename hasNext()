@@ -1,6 +1,6 @@
 public boolean hasNext(){
   if(itr.next == null){
-    throw indexOutOfBounds exception();
+    throw IndexOutOfBoundsException();
   }
   return true;
 }
