@@ -1,0 +1,34 @@
+private class myListIterator {
+        private int currentIndex;
+
+        public myListIterator() {
+            this.currentIndex = -1; // Assuming iterator starts before the first element
+        }
+
+       
+
+        /**
+         * Retrieves the next element in the ArrayList and advances the iterator.
+         * @return The next Fraction element.
+         * @throws NoSuchElementException if no next element is present.
+         */
+        public Fraction next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("No next element available in the list.");
+            }
+            currentIndex++;
+            return data[currentIndex];
+        }
+
+        /**
+         * Retrieves the previous element in the ArrayList and moves the iterator backward.
+         * @return The previous Fraction element.
+         * @throws NoSuchElementException if no previous element is present.
+         */
+        public Fraction previous() {
+            if (!hasPrevious()) {
+                throw new NoSuchElementException("No previous element available in the list.");
+            }
+            currentIndex--;
+            return data[currentIndex];
+        }}}
