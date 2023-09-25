@@ -1,0 +1,6 @@
+public boolean hasPrevious(){
+  if(!itr.next){
+    return false;
+  }
+  return true;
+}
