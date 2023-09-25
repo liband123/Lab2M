@@ -1,6 +1,6 @@
 public boolean hasPrevious(){
   if(itr.prev == null){
-    throw IndexOutOfBoundsException();
+    throw new IndexOutOfBoundsException();
   }
   return true;
 }
