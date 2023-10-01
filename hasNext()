@@ -1,6 +1,8 @@
-public boolean hasNext(){
-  if(itr.next == null){
-    throw new IndexOutOfBoundsException();
-  }
-  return true;
+/**
+ * Determines whether there is a next element in the list.
+ *
+ * @return true if there is a next element, false otherwise
+ */
+public boolean hasNext() {
+    return itr.next != null;
 }
