@@ -1,6 +1,9 @@
-public boolean hasPrevious(){
-  if(itr.prev == null){
-    throw new IndexOutOfBoundsException();
-  }
-  return true;
+
+/**
+ * Determines whether there is a previous element in the list.
+ *
+ * @return true if there is a previous element, false otherwise
+ */
+public boolean hasPrevious() {
+    return itr.prev != null;
 }
