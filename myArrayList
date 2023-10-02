@@ -41,14 +41,13 @@ public class myArrayList {
         size--;
         return removedElement;
     }
-
-    // A utility method to print the array (for testing purposes)
+  // A utility method to print the array (for testing purposes)
     public void print() {
         for (int i = 0; i < size; i++) {
             data[i].print();
         }
     }
-
+    
     public boolean addAll(Fraction[] frc, myArrayList list) {
     	for(int i=0;i < frc.length; i++) {
     		list.add(list.indexOf(list.next()),frc[i]);
@@ -56,19 +55,14 @@ public class myArrayList {
     	return true;
     }
 
-    public static void main(String[] args) {
+ public static void main(String[] args) {
+ 
         myArrayList list = new myArrayList();
-        
-        // Testing the add method
+
+
         list.add(0, new Fraction(1, 2));
         list.add(1, new Fraction(2, 3));
         list.add(2, new Fraction(3, 4));
-        
-        // Testing the indexOf method
-        System.out.println("Index of 1/2: " + list.indexOf(new Fraction(1, 2)));
-        
-        // Removing a fraction
-        list.remove(1);
 
         // Print list
         list.print();
@@ -76,5 +70,76 @@ public class myArrayList {
         // Creates fraction array and calls addAll
         Fraction[] frc = new Fraction[10];
         list.addAll(frc, list);
+       
+        myArrayList.myListIterator itr = list.new myListIterator(); 
+
+     
+
     }
+    private class myListIterator {
+        private int currentIndex;
+
+        public myListIterator() {
+            this.currentIndex = -1; // Assuming iterator starts before the first element
+        }
+
+       
+
+        /**
+         * Retrieves the next element in the ArrayList and advances the iterator.
+         * @return The next Fraction element.
+         * @throws NoSuchElementException if no next element is present.
+         */
+        public Fraction next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("No next element available in the list.");
+            }
+            currentIndex++;
+            return data[currentIndex];
+        }
+
+        /**
+         * Retrieves the previous element in the ArrayList and moves the iterator backward.
+         * @return The previous Fraction element.
+         * @throws NoSuchElementException if no previous element is present.
+         */
+        public Fraction previous() {
+            if (!hasPrevious()) {
+                throw new NoSuchElementException("No previous element available in the list.");
+            }
+            currentIndex--;
+            return data[currentIndex];
+        }}}
+    public void removeAllNext() {
+        MyArrayListIterator iterator = new MyArrayListIterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+        }
+        int removeIndex = iterator.currentIndex;
+        int elementsToRemove = size - removeIndex - 1;
+        if (elementsToRemove > 0) {
+            System.arraycopy(array, removeIndex + 1, array, removeIndex, elementsToRemove);
+            Arrays.fill(array, size - elementsToRemove, size, null);
+            size -= elementsToRemove;
+        }
+    }
+/**
+ * Determines whether there is a next element in the list.
+ *
+ * @return true if there is a next element, false otherwise
+ */
+public boolean hasNext() {
+    return itr.next != null;
+}
+  
+/**
+ * Determines whether there is a previous element in the list.
+ *
+ * @return true if there is a previous element, false otherwise
+ */
+public boolean hasPrevious() {
+    return itr.prev != null;
+}
+
+    
 }
