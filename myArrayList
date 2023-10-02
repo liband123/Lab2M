@@ -41,6 +41,19 @@ public class myArrayList {
         size--;
         return removedElement;
     }
+    public void removeAllNext() {
+        MyArrayListIterator iterator = new MyArrayListIterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+        }
+        int removeIndex = iterator.currentIndex;
+        int elementsToRemove = size - removeIndex - 1;
+        if (elementsToRemove > 0) {
+            System.arraycopy(array, removeIndex + 1, array, removeIndex, elementsToRemove);
+            Arrays.fill(array, size - elementsToRemove, size, null);
+            size -= elementsToRemove;
+        }
+    }
 
     // A utility method to print the array (for testing purposes)
     public void print() {
@@ -65,5 +78,10 @@ public class myArrayList {
 
         // Print list
         list.print();
+
+        // Testing the removeAllNext method
+        list.removeAllNext();
+        System.out.println("After removing all next: " + Arrays.toString(list.array));
     }
+
 }
