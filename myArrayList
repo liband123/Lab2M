@@ -109,8 +109,23 @@ public class myArrayList {
             size -= elementsToRemove;
         }
     }
-
+/**
+ * Determines whether there is a next element in the list.
+ *
+ * @return true if there is a next element, false otherwise
+ */
+public boolean hasNext() {
+    return itr.next != null;
+}
   
+/**
+ * Determines whether there is a previous element in the list.
+ *
+ * @return true if there is a previous element, false otherwise
+ */
+public boolean hasPrevious() {
+    return itr.prev != null;
+}
 
     
 }
